@@ -80,5 +80,9 @@ app.use((err, req, res, next) => {
   });
 });
 
+// Root route (fixes Render "NotFoundError" spam)
+app.get("/", (req, res) => {
+  res.status(200).send("Backend is running");
+});
 
 module.exports = app;
