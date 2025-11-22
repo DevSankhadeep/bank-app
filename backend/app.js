@@ -13,13 +13,13 @@ app.use(cors({
   origin: process.env.CLIENT_URL   // replace '*' with specific URL in production
 }));
 
-const mongoUri = process.env.DB_URL;
+const MONGODB_URI = process.env.DB_URL;
 if (!mongoUri) {
   console.error('MONGODB_URI not set');
   process.exit(1);
 }
 
-mongoose.connect(mongoUri, {
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
