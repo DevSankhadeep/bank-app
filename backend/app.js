@@ -5,12 +5,14 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require ("cors");
+const allowedOrigin = "https://banesys.netlify.app";
 
 const app = express();
 
 app.use(express.json());
 app.use(cors({
-  origin: process.env.VITE_BASEURL   // replace '*' with specific URL in production
+  origin: allowedOrigin,
+  credentials: true,   // replace '*' with specific URL in production
 }));
 
 const mongoUri = process.env.DB_URL;
