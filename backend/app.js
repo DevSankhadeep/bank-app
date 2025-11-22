@@ -1,12 +1,37 @@
 const createError = require('http-errors');
 const express = require('express');
+const mongoose = require('mongoose');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require ("cors");
 
-
 const app = express();
+
+app.use(express.json());
+app.use(cors({
+  origin: process.env.CLIENT_URL || 'https://banesys.netlify.app' // replace '*' with specific URL in production
+}));
+
+const mongoUri = process.env.DB_URL;
+if (!mongoUri) {
+  console.error('MONGODB_URI not set');
+  process.exit(1);
+}
+
+mongoose.connect(mongoUri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log('MongoDB connected');
+}).catch(err => {
+  console.error('MongoDB connection error:', err);
+  process.exit(1);
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
 //require routers files
 const usersRouter = require("./routes/users.routes");
 const uploadRouter = require("./routes/upload.routes");
@@ -19,12 +44,10 @@ const verifyRouter = require ("./routes/verify.routes");
 const customersRouter = require ("./routes/customers.routes");
 const findByAccountRouter = require("./routes/findByAccount.routes");
 const transactionRouter = require("./routes/transaction.routes");
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use(cors({origin:"http://localhost:5173",
-  credentials : true
-}));//add by me
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
