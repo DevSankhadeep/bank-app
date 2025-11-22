@@ -1,0 +1,1 @@
+import{j as e}from"./index-DTB5YGJN.js";import{E as o}from"./index-CMga2gg8.js";import"./index-D5VRFVwU.js";import"./button-4Hia_NiO.js";import"./index-B6thoTjc.js";function a(){return e.jsx("div",{children:e.jsx(o,{children:e.jsx("h1",{className:"text-5xl font-bold text-red-500",children:"Welcome to employee dashboard"})})})}export{a as default};

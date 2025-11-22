@@ -1,0 +1,1 @@
+import{j as t}from"./index-DTB5YGJN.js";import{A as o}from"./index-FtKvC6ry.js";import"./index-D5VRFVwU.js";import"./button-4Hia_NiO.js";import"./index-B6thoTjc.js";import"./UserOutlined-Br0YFcVF.js";function s(){return t.jsx("div",{children:t.jsx(o,{children:t.jsx("h1",{className:"text-5xl font-bold text-red-500",children:"Welcome to admin dashboard"})})})}export{s as default};
