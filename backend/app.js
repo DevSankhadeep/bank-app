@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-  origin: process.env.CLIENT_URL   // replace '*' with specific URL in production
+  origin: process.env.VITE_BASEURL   // replace '*' with specific URL in production
 }));
 
 const MONGODB_URI = process.env.DB_URL;
