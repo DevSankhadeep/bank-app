@@ -186,14 +186,14 @@ export default function NewAccount() {
             title: "Photo",
             key: "photo",
             render: (src, obj) => (
-                <Image src={`${import.meta.env.VITE_BASEURL}/${obj.profile}`} className="rounded-full" width={40} height={40} />
+                <Image src={`${import.meta.env.VITE_API_URL}/${obj.profile}`} className="rounded-full" width={40} height={40} />
             )
         },
         {
             title: "Signature",
             key: "signature",
             render: (src, obj) => (
-                <Image src={`${import.meta.env.VITE_BASEURL}/${obj.profile}`} className="rounded-full" width={40} height={40} />
+                <Image src={`${import.meta.env.VITE_API_URL}/${obj.profile}`} className="rounded-full" width={40} height={40} />
             )
         },
         {

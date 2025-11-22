@@ -4,7 +4,7 @@ import axios from "axios"
 
 export const http = (accessToken = null) => {
   const instance = axios.create({
-   baseURL: import.meta.env.VITE_BASEURL,
+   baseURL: import.meta.env.VITE_API_URL,
    withCredentials: true
   });
   if(accessToken){
