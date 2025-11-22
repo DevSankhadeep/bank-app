@@ -1,5 +1,5 @@
 import React from 'react'
-import Homelayout from '../layout/homelayout'
+import Homelayout from '../Layout/Homelayout'
 import Login from './Login'
 
 export default function Homepage() {
